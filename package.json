@@ -9,7 +9,7 @@
     "start": "NODE_ENV=development nodemon --ignore doc/ app.js",
     "prod": "NODE_ENV=production node app.js"
   },
-  "name": "<PROJECT_NAME>",
+  "name": "project_name",
   "version": "1.0.0",
   "description": "<PROJECT_DESCRIPTION>",
   "main": "app.js",
