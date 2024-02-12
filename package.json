@@ -1,8 +1,8 @@
 {
   "author": "<PROJECT_AUTHOR>",
   "engines": {
-    "node": ">= 20.10.0",
-    "npm": ">= 10.1.0"
+    "node": ">= 20.11.0",
+    "npm": ">= 10.2.4"
   },
   "scripts": {
     "test": "NODE_ENV=test mocha tests --timeout 8000 --recursive --exit",
