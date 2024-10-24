@@ -10,4 +10,7 @@ module.exports = {
   INVALID_EMAIL: 'InvalidEmail',
   DUPLICATE_EMAIL: 'DuplicateEmail',
   UNAUTHORIZED_ERROR: 'UnauthorizedError',
+  INACTIVE_ACCOUNT: 'InactiveAccount',
+  EXISTING_USER: 'ExistingUser',
+  IS_LOCKED_ERROR: 'IsLockedError',
 };
