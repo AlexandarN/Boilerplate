@@ -55,7 +55,7 @@ module.exports = () => (err, req, res, next) => { // err - is the error object, 
       error.errorCode = 9;
       break;
     case errorConstantsObj.DUPLICATE_EMAIL:
-      error.status = 406;
+      error.status = 409;
       error.message = 'This email address is already registered';
       error.errorCode = 10;
       break;
@@ -64,10 +64,25 @@ module.exports = () => (err, req, res, next) => { // err - is the error object, 
       error.message = 'Invalid credentials';
       error.errorCode = 11;
       break;
+    case err.message.startsWith(errorConstantsObj.INACTIVE_ACCOUNT):
+      error.status = 401;
+      error.message = 'This account is not active';
+      error.errorCode = 12;
+      break;
+    case err.message.startsWith(errorConstantsObj.EXISTING_USER):
+      error.status = 409;
+      error.message = 'This user already exists';
+      error.errorCode = 13;
+      break;
+    case err.message.startsWith(errorConstantsObj.IS_LOCKED_ERROR):
+      error.status = 423;
+      error.message = 'Dokument je zaključan';
+      error.errorCode = 14;
+      break;
     case 'jwt expired':
       error.status = 401;
       error.message = 'Token expired';
-      error.errorCode = 12;
+      error.errorCode = 15;
       break;
     default:
       error.status = 500;
