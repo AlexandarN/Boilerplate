@@ -13,4 +13,5 @@ module.exports = {
   INACTIVE_ACCOUNT: 'InactiveAccount',
   EXISTING_USER: 'ExistingUser',
   IS_LOCKED_ERROR: 'IsLockedError',
+  DELETION_FORBIDDEN: (itemName, documentName, resourceName) => ['DeletionForbidden', itemName, documentName, resourceName],
 };
