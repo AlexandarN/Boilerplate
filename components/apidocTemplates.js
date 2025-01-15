@@ -133,7 +133,7 @@
  *     HTTP/1.1 406 Not Acceptable
  *     {
  *       "message": "This email address is already registered",
- *       "status": 406,
+ *       "status": 409,
  *       "errorCode": 10,
  *     }
  */
@@ -153,15 +153,71 @@
  */
 
 /**
+ * @apiDefine InactiveAccount
+ *
+ * @apiError (401) InactiveAccount Error Code <code>12</code> This account is not active
+ *
+ * @apiErrorExample Error-Response:
+ *    HTTP/1.1 401 Unauthorized
+ *     {
+ *       "message": "This account is not active",
+ *       "status": 401,
+ *       "errorCode": 12
+ *     }
+ */
+
+/**
+ * @apiDefine UserAlreadyExists
+ *
+ * @apiError (409) UserAlreadyExists Error Code <code>13</code> This user already exists
+ *
+ * @apiErrorExample Error-Response:
+ *    HTTP/1.1 409 Conflict
+ *     {
+ *       "message": "This user already exists",
+ *       "status": 409,
+ *       "errorCode": 13
+ *     }
+ */
+
+/**
+ * @apiDefine IsLockedError
+ *
+ * @apiError (423) IsLockedError Error Code <code>14</code> Dokument je zaključan
+ *
+ * @apiErrorExample Error-Response:
+ *    HTTP/1.1 423 Locked
+ *    {
+ *      "message": "Dokument je zaključan",
+ *      "status": 423,
+ *      "errorCode": 14
+ *    }
+ */
+
+/**
  * @apiDefine TokenExpired
  *
- * @apiError (401) TokenExpired Error Code <code>12</code> Token expired
+ * @apiError (401) TokenExpired Error Code <code>15</code> Token expired
  *
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 401 Unauthorized
  *     {
  *       "message": "Token expired",
  *       "status": 401,
- *       "errorCode": 12,
+ *       "errorCode": 15,
  *     }
+ */
+
+/**
+ * @apiDefine DeletionForbidden
+ *
+ * @apiError (403) DeletionForbidden Error Code <code>16</code> Brisanje zabranjeno, stavka 'itemName' se koristi u 'resource' 'resourceName' istog perioda`
+ *
+ * @apiErrorExample Error-Response:
+ *    HTTP/1.1 403 Forbidden
+ *    {
+ *      "message": "Brisanje zabranjeno, stavka 'itemName' se koristi u 'resource' 'resourceName' istog perioda",
+ *      "status": 403,
+ *      "errorCode": 16
+ *    }
  */

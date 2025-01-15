@@ -8,6 +8,10 @@ module.exports = () => (err, req, res, next) => { // err - is the error object, 
 
   // console.log('err', err);
 
+  const first = err.message.split(',')[1];
+  const second = err.message.split(',')[2];
+  const third = err.message.split(',')[3];
+
   switch (err.message) { // err.message is the message title, e.g. 'NotFound'
     case errorConstantsObj.AUTHORIZATION_TOKEN: // errorConstantsObj.AUTHORIZATION_TOKEN is the message title that is set in 'errorConstants.js', e.g. 'NotFound'. We pull this from errorConstants.js file.
       error.message = 'No authorization token was found';
@@ -83,6 +87,11 @@ module.exports = () => (err, req, res, next) => { // err - is the error object, 
       error.status = 401;
       error.message = 'Token expired';
       error.errorCode = 15;
+      break;
+    case err.message.startsWith('DeletionForbidden'):
+      error.status = 403;
+      error.errorCode = 16;
+      error.message = `Brisanje zabranjeno, stavka '${first}' se koristi u '${second}' ${third ? `'${third}' ` : ``}istog perioda`;
       break;
     default:
       error.status = 500;
